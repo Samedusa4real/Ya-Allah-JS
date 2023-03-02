@@ -14,8 +14,9 @@ do{
                 do{
                     firstChoice = prompt("Artirmaq istediyiniz meblegi daxil edin:")
                     if(!isNaN(firstChoice)){
-                        moneyRn = Number(moneyRn) + Number(firstChoice);
-                        alert("Balansiniz ugurla artirildi, yeni balansiniz: " + Number(moneyRn) + "azn");
+                        // moneyRn = Number(moneyRn) + Number(firstChoice);
+                        // alert("Balansiniz ugurla artirildi, yeni balansiniz: " + Number(moneyRn) + "azn");
+                        moneyRn = cashIn(moneyRn,firstChoice)
                     }else{
                         alert("Zehmet olmasa duzgun mebleg daxil edin!");
                     }
@@ -27,8 +28,9 @@ do{
                 do{
                     secondChoice = prompt("Cekmek istediyiniz pulun miqdarini daxil edin:")
                     if(!isNaN(secondChoice) && moneyRn>=secondChoice){
-                        moneyRn = Number(moneyRn) - Number(secondChoice);
-                        alert("Pulunuz ugurla cekildi, sizin yeni balansiniz: " + Number(moneyRn) + "azn")
+                        // moneyRn = Number(moneyRn) - Number(secondChoice);
+                        // alert("Pulunuz ugurla cekildi, sizin yeni balansiniz: " + Number(moneyRn) + "azn")
+                        moneyRn = cashOut(moneyRn,secondChoice)
                     }else if(moneyRn<secondChoice){
                         alert("Balansda kifayet qeder vesait yoxdur!");
                     }
@@ -48,3 +50,17 @@ do{
         alert("Siz ugurla cixis etdiniz!");
     }
 }while(finalChoice === 'D')
+
+
+
+function cashIn(balance,amount){
+    balance = Number(balance) + Number(amount);
+    alert("Balansiniz ugurla artirildi, yeni balansiniz: " + Number(balance) + "azn");
+    return balance;
+}
+
+function cashOut(balance,amount){
+    balance = Number(balance) - Number(amount);
+    alert("Pulunuz ugurla cekildi, sizin yeni balansiniz: " + Number(balance) + "azn");
+    return balance;
+}
